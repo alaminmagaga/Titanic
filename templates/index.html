@@ -1,9 +1,16 @@
 <form action="{{ url_for('submit') }}" method="post">
-    <label for="Pclass">Passenger Class:</label>
-    <input type="number"  name="Pclass" required><br><br>
+     <select name="Pclass" required>
+        <option value="First Class">First Class</option>
+        <option value="Second Class">Second Class</option>
+        <option value="Third Class">Third Class</option>
+    </select>
+    <br><br>
 
     <label for="Sex">Sex:</label>
-    <input type="text"  name="Sex" required><br><br>
+    <select name="Sex" required>
+        <option value="male"> Male</option>
+        <option value="female">Female</option>
+    </select>
 
     <label for="Age">Age:</label>
     <input type="number"  name="Age" required><br><br>

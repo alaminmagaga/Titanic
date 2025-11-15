@@ -16,14 +16,27 @@ def about():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    Pclass = float(request.form['Pclass'])
-    Sex = float(request.form['Sex'])
+    Pclass = request.form['Pclass']
+    Sex = request.form['Sex']
+
     Age = float(request.form['Age'])
     SibSp = float(request.form['SibSp'])
     Parch = float(request.form['Parch'])
     Fare = float(request.form['Fare'])
     Embarked = float(request.form['Embarked'])
     Age_Group = float(request.form['Age Group'])
+
+    if Pclass=="First Class":
+        Pclass=0
+    elif Pclass=="Second Class":
+        Pclass=1
+    elif Pclass=="Third Class":
+        Pclass=2
+
+    if Sex=="male":
+        Sex=0
+    else:
+        Sex=1
 
     features = np.array([[Pclass, Sex, Age, SibSp, Parch, Fare, Embarked, Age_Group]])
     prediction = model.predict(features)
